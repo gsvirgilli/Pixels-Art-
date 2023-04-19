@@ -1,0 +1,33 @@
+.color {
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    width: 15%;
+    height: 15%;
+}
+
+#color-palette {
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    text-align: center;
+}
+
+#pixel-board {
+    background-color: white;
+}
+
+.pixel {
+    border: 1px solid black;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.selected {
+    background-color: black;
+}
+
