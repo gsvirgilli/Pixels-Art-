@@ -31,3 +31,21 @@
     background-color: black;
 }
 
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+}
+
+.cima {
+    margin: auto;
+    width: 30%;
+    height: 50px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
