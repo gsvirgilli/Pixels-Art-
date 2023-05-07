@@ -12,26 +12,29 @@
     <header id="title">
       <h1>Paleta de Cores</h1>
     </header>
-    <section class="cima">
-      <section id="color-palette">
-        <div class="color selected"></div>
-        <div class="color"></div>
-        <div class="color"></div>
-        <div class="color"></div>
-      </section>
+    <main class="main">
+      <section class="cima">
         <button id="button-random-color">Mudar<br> Cores</button>
-        <button id="clear-board">Limpar</button>
-    </section>
-    <div>
-      <label for="board-size">Tamanho do board:</label>
-      <input type="number" id="board-size" min="1" max="50" >
-      <button id="generate-board">VQV</button>
-    </div>
-    <section class="board">
+        <section id="color-palette">
+          <div class="color selected"></div>
+          <div class="color"></div>
+          <div class="color"></div>
+          <div class="color"></div>
+        </section>
+      </section>
+      <section class="board">
         <div id="pixel-board"></div>
-    </section>
+      </section>
+      <section class="lado3">
+        <button id="clear-board">Limpar</button>
+        <div>
+          <label for="board-size">Tamanho do board:</label>
+          <input type="number" id="board-size" min="1" max="50" >
+          <button id="generate-board">VQV</button>
+        </div>
+      </section>
+    </main>
     <footer id="rodape">
-      <p>Guilherme Silva Virgilli</p>
     </footer>
 </body>
 <script src="script.js"></script>
