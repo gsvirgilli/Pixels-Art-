@@ -71,7 +71,7 @@ if (localStorage.getItem('boardSize')) {
 if (!localStorage.getItem('boardSize')) {
   criandoQuadro(input);
 }
-const addPixelClickEvent = () => {
+/* const addPixelClickEvent = () => {
   const pixel = document.querySelectorAll('.pixel');
   for (let quadro of pixel) {
     quadro.addEventListener('click', (event) => {
@@ -86,7 +86,62 @@ const addPixelClickEvent = () => {
       }
     });
   }
-};
+}; */
+
+const getSelectedColor = () => {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    return selected.style.backgroundColor;
+  }
+  return null;
+}
+
+const savePixelData = () => {
+  const pixels = document.querySelectorAll('.pixel');
+  const pixelData = [];
+  pixels.forEach(pixel => {
+    pixelData.push(pixel.style.backgroundColor);
+  })
+  localStorage.setItem('pixelBoard', JSON.stringify(pixelData));
+}
+
+/* const addPixelClickEvent = () => {
+  const pixels = document.querySelectorAll('.pixel');
+  pixels.forEach(pixel => {
+    pixel.addEventListener('click', () => {
+      const selectedColor = getSelectedColor();
+      pixel.style.backgroundColor = selectedColor;
+      savePixelData();
+    })
+  })
+}; */
+
+const addPixelClickEvent = () => {
+  const pixels = document.querySelectorAll('.pixel');
+  let isDragging = false;
+
+  pixels.forEach(pixel => {
+    pixel.addEventListener('mousedown', () => {
+      isDragging = true;
+      pixel.classList.add('painted');
+      savePixelData();
+    })
+
+    pixel.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    pixel.addEventListener('mouseover', () => {
+      if (isDragging) {
+        const selectedColor = getSelectedColor();
+        pixel.style.backgroundColor = selectedColor;
+        pixel.classList.add('painted');
+        savePixelData();
+      }
+    })
+  })
+}
+
 addPixelClickEvent();
 
 btnGerarQuadro.addEventListener('click', () => {
@@ -98,7 +153,7 @@ btnGerarQuadro.addEventListener('click', () => {
     criandoQuadro(5);
     addPixelClickEvent();
   } else if (input > 50) {
-    criandoQuadro(50);
+    criandoQuadro(100);
     addPixelClickEvent();
   } else {
     alert('Board inválido!');
