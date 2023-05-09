@@ -6,13 +6,29 @@ const randomColor = () => {
   return rgbColor;
 };
 
+const criandoCores = () => {
+  for (let index = 0; index < 24; index += 1) {
+    const novaCor = document.createElement('div');
+    novaCor.classList.add('color');
+    document.querySelector('#color-palette').appendChild(novaCor);
+  }
+};
+criandoCores();
+
 const array = [];
 const cores = document.querySelectorAll('.color');
+const numCores = cores.length;
+
 const paleta = () => {
   array[0] = cores[0].style.backgroundColor = 'black';
-  array[1] = cores[1].style.backgroundColor = randomColor();
-  array[2] = cores[2].style.backgroundColor = randomColor();
-  array[3] = cores[3].style.backgroundColor = randomColor();
+  for (let index = 1; index < numCores; index += 1) {
+    let novaCor = randomColor();
+    while (array.includes(novaCor)) {
+      novaCor = randomColor();
+    }
+    array[index] = novaCor;
+    cores[index].style.backgroundColor = novaCor;
+  }
 };
 
 if (!localStorage.getItem('colorPalette')) {
@@ -22,9 +38,9 @@ if (!localStorage.getItem('colorPalette')) {
 const pegandoCores = () => {
   const dadosDCores = JSON.parse(localStorage.getItem('colorPalette'));
   array[0] = cores[0].style.backgroundColor = dadosDCores[0];
-  array[1] = cores[1].style.backgroundColor = dadosDCores[1];
-  array[2] = cores[2].style.backgroundColor = dadosDCores[2];
-  array[3] = cores[3].style.backgroundColor = dadosDCores[3];
+  for (let index = 1; index < numCores; index += 1) {
+    array[index] = cores[index].style.backgroundColor = dadosDCores[index];
+  }
 };
 
 if (localStorage.getItem('colorPalette')) {
@@ -55,7 +71,7 @@ for (let paleta of cores) {
 const criandoQuadro = (tamanho) => {
   pai.innerHTML = '';
   const larguraTotal = window.innerWidth;
-  const larguraDaDivPai = larguraTotal * 0.6;
+  const larguraDaDivPai = larguraTotal * 0.4;
   const larguraPixel = larguraDaDivPai / tamanho;
   for (let index = 0; index < tamanho; index += 1) {
     let outro = document.createElement('div');
@@ -161,7 +177,7 @@ btnGerarQuadro.addEventListener('click', () => {
     criandoQuadro(5);
     addPixelClickEvent();
   } else if (input > 50) {
-    criandoQuadro(100);
+    criandoQuadro(200);
     addPixelClickEvent();
   } else {
     alert('Board inválido!');

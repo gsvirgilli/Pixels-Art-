@@ -5,8 +5,14 @@
 
 h1 {
   font-size: 7vh;
-  text-align: center;
 }
+
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
 
 .selected {
   background-color: black;
@@ -17,42 +23,45 @@ h1 {
   justify-content: center;
   border: 1px solid black;
   border-radius: 45px;
-  width: 35rem;
-  height: 7rem;
-  margin: auto;
+  width: 40vw;
+  height: 10vh;
+  margin: 0px;
   margin-bottom: 35px;
   background-color: whitesmoke;
   align-items: center;
 }
 
 .cima {
-  margin: auto;
+  margin: 0px;
+  width: 10%;
   display: flex;
   flex-flow: column wrap;
-  flex-grow: 1;
+}
+
+#button-random-color {
+  align-self: center;
 }
 
 #color-palette {
-  width: 15em;
-  height: 15em;
   display: flex;
   flex-flow: row wrap;
+  justify-content:center;
   align-items: center;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .color {
   border: 1px solid black;
-  display: inline-block;
-  text-align: center;
-  width: 15%;
-  height: 15%;
   margin: 4px;
+  width: 50px;
+  height: 50px;
 }
 
 #pixel-board {
   border: 1px solid black;
-  width: 60vw;
-  height: 60vw;
+  width: 40vw;
+  height: 40vw;
   background-color: whitesmoke;
   display: flex;
   flex-flow: wrap;
@@ -63,27 +72,18 @@ h1 {
 }
 
 .main {
-  margin: auto;
+  margin: 0px;
+  width: 100vw;
   display: flex;
   flex-flow: wrap;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-#button-random-color {
-  text-align: center;
+  justify-content: space-around;
 }
 
 .lado3 {
-  flex-grow: 1;
+  width: 10%;
   display: flex;
   flex-flow: column wrap;
-  margin: auto;
+  margin: 0px;
   background-color: none;
   align-items: center;
-}
-
-.lado3 div {
-  display: flex;
-  flex-flow: column;
 }
