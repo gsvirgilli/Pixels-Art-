@@ -54,16 +54,23 @@ for (let paleta of cores) {
 
 const criandoQuadro = (tamanho) => {
   pai.innerHTML = '';
+  const larguraTotal = window.innerWidth;
+  const larguraDaDivPai = larguraTotal * 0.6;
+  const larguraPixel = larguraDaDivPai / tamanho;
   for (let index = 0; index < tamanho; index += 1) {
     let outro = document.createElement('div');
-    pai.appendChild(outro);
     for (let index1 = 0; index1 < tamanho; index1 += 1) {
-      let outro1 = document.createElement('div');
-      outro1.className = 'pixel';
-      outro.appendChild(outro1);
+      outro = document.createElement('div');
+      outro.className = 'pixel';
+      outro.style.width = larguraPixel + 'px';
+      outro.style.height = larguraPixel + 'px';
+      pai.appendChild(outro);
     }
   }
+  console.log(pai.children.length);
+  console.log(larguraPixel);
 };
+
 if (localStorage.getItem('boardSize')) {
   let tamanho = localStorage.getItem('boardSize');
   criandoQuadro(tamanho);
@@ -123,7 +130,8 @@ const addPixelClickEvent = () => {
   pixels.forEach(pixel => {
     pixel.addEventListener('mousedown', () => {
       isDragging = true;
-      pixel.classList.add('painted');
+      const selectedColor = getSelectedColor();
+      pixel.style.backgroundColor = selectedColor;
       savePixelData();
     })
 
@@ -131,8 +139,8 @@ const addPixelClickEvent = () => {
       isDragging = false;
     });
 
-    pixel.addEventListener('mouseover', () => {
-      if (isDragging) {
+    pixel.addEventListener('mouseover', (event) => {
+      if (isDragging && event.buttons === 1) {
         const selectedColor = getSelectedColor();
         pixel.style.backgroundColor = selectedColor;
         pixel.classList.add('painted');
