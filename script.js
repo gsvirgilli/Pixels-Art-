@@ -81,7 +81,7 @@ for (let paleta of cores) {
 
 const criandoQuadro = (tamanho) => {
   pai.innerHTML = '';
-  const larguraTotal = window.innerWidth;
+  const larguraTotal = window.innerWidth / (window.innerWidth / document.documentElement.clientWidth);
   const larguraDaDivPai = larguraTotal * 0.4;
   const larguraPixel = larguraDaDivPai / tamanho;
   for (let index = 0; index < tamanho; index += 1) {

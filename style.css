@@ -4,7 +4,7 @@
 }
 
 h1 {
-  color: rgb(99, 227, 146);
+  color: rgb(0, 0, 0);
   font-size: 50px;
 }
 
@@ -84,6 +84,10 @@ body {
 
 .main {
   margin-top: 40px;
+  box-sizing: border-box;
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+
 }
 
 .nave {
@@ -111,3 +115,9 @@ body {
   margin-right: 10px;
 }
 
+@media (max-width: 1250px) {
+  #pixel-board {
+    width: 31.25vw; /* 40vw ajustado para 31.25vw para acomodar o zoom de 125% */
+    height: 31.25vw; /* 40vw ajustado para 31.25vw para acomodar o zoom de 125% */
+  }
+}
