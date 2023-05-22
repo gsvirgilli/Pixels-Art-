@@ -7,12 +7,22 @@ const randomColor = () => {
 };
 
 const criandoCores = () => {
-  for (let index = 0; index < 24; index += 1) {
+  for (let index = 0; index < 55; index += 1) {
     const novaCor = document.createElement('div');
     novaCor.classList.add('color');
+    document.querySelector('#color-palette2').appendChild(novaCor);
     document.querySelector('#color-palette').appendChild(novaCor);
   }
 };
+
+const criandoCores2 = () => {
+  for (let index = 0; index < 55; index += 1) {
+    const novaCor = document.createElement('div');
+    novaCor.classList.add('color');
+    document.querySelector('#color-palette2').appendChild(novaCor);
+  }
+}
+criandoCores2();
 criandoCores();
 
 const array = [];
@@ -21,7 +31,8 @@ const numCores = cores.length;
 
 const paleta = () => {
   array[0] = cores[0].style.backgroundColor = 'black';
-  for (let index = 1; index < numCores; index += 1) {
+  array[1] = cores[1].style.backgroundColor = 'white';
+  for (let index = 2; index < numCores; index += 1) {
     let novaCor = randomColor();
     while (array.includes(novaCor)) {
       novaCor = randomColor();

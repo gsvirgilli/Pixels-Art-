@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Pixels Art</title>
     <style></style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header id="title">
-      <h1>Paleta de Cores</h1>
-    </header>
-    <main class="main">
-      <section class="cima">
-        <button id="button-random-color">Mudar<br> Cores</button>
-        <section id="color-palette">
-          <div class="color selected"></div>
-          <div class="color"></div>
-          <div class="color"></div>
-          <div class="color"></div>
-        </section>
-      </section>
-        <div id="pixel-board"></div>
-      </section>
-      <section class="lado3">
-        <button id="clear-board">Limpar</button>
-        <div>
+      <nav class="nave">
+        <button class="btn btn-outline-success" id="button-random-color">Mudar Cores</button>
+          <button class="btn btn-outline-danger" id="clear-board">Limpar</button>
           <label for="board-size"></label>
-          <input type="number" id="board-size" min="1" max="200" placeholder="Tamanho do board">
-          <button id="generate-board">VQV</button>
-        </div>
+          <input type="number" id="board-size" min="1" max="200" placeholder="Tamanho">
+          <button class="btn btn-outline-info" id="generate-board">Mudar</button>
+      </nav>
+      <h1>Paleta de Cores asdasdasasd</h1>
+      <div>
+        <a href="https://github.com/gsvirgilli" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50px" target="_blank"></a>
+        <a href="https://www.linkedin.com/in/gsvirgilli" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="50px" target="_blank"></a>
+      </div>
+    </header>
+    <section class="cima">
+      <section id="color-palette">
+        <div class="color selected"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
       </section>
-    </main>
-    <footer id="rodape">
-    </footer>
+      <main class="main">
+        <div id="pixel-board"></div>
+      </main>
+      <section id="color-palette2">
+        <div class="color selected"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+      </section>
+    </section>
+  <footer id="rodape">
+  </footer>
 </body>
 <script src="script.js"></script>
 </html>
