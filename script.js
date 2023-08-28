@@ -185,7 +185,7 @@ btnGerarQuadro.addEventListener('click', () => {
     criandoQuadro(input);
     addPixelClickEvent();
   } else if (input < 5 && input !== '') {
-    criandoQuadro(5);
+    criandoQuadro(10);
     addPixelClickEvent();
   } else if (input > 50) {
     criandoQuadro(200);
