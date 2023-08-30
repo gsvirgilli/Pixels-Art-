@@ -103,7 +103,7 @@ body {
   border-radius: 20px;
   box-sizing: border-box;
   border: 4px solid white;
-  background-color: whitesmoke;
+  background-color: rgb(255, 255, 255);
 }
 
 .naves {
@@ -127,7 +127,7 @@ body {
   border-bottom: 4px solid rgba(0, 0, 0, 0.42);
   border-radius: 10px;
   border-right: 4px solid rgba(0, 0, 0, 0.333);
-  background-color: rgba(34, 34, 194, 0.67);
+  background-color: rgba(34, 34, 194, 0.587);
 }
 
 #button-random-color:active {
@@ -143,7 +143,7 @@ body {
   border-bottom: 4px solid rgba(0, 0, 0, 0.42);
   border-radius: 10px;
   border-right: 4px solid rgba(0, 0, 0, 0.333);
-  background-color: rgba(53, 198, 53, 0.843);
+  background-color: rgba(53, 198, 53, 0.64);
 }
 
 #generate-board:active {
@@ -178,7 +178,7 @@ body {
   border-bottom: 4px solid rgba(0, 0, 0, 0.42);
   border-radius: 10px;
   border-right: 4px solid rgba(0, 0, 0, 0.333);
-  background-color: rgba(250, 60, 60, 0.795);
+  background-color: rgba(250, 60, 60, 0.76);
 }
 
 #clear-board:active {
