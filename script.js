@@ -79,7 +79,7 @@ const criandoQuadro = (tamanho) => {
   let larguraDaDivPai;
 
   if (window.innerWidth <= 768) {
-    larguraDaDivPai = larguraTotal * 0.7;
+    larguraDaDivPai = larguraTotal * 0.9;
   } else {
     larguraDaDivPai = larguraTotal * 0.4;
   }
