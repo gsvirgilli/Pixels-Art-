@@ -1,0 +1,107 @@
+@media (max-width: 768px) {
+  body {
+    background-image: url('./img/8-bit-artwork-house-island-in-middle-of-water-8v.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  #pixel-board {
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pixel {
+    width: 25vw;
+    height: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;/
+  }
+
+  .linha {
+    flex-direction: column;
+  }
+  
+  .cima {
+    display: flex;
+    flex-flow: column nowrap;
+    width: auto;
+  }
+  
+  .color {
+    width: 10vw;
+    height: 6vh;
+  }
+
+  .naves {
+    padding: auto;
+    margin: 0;
+    width: auto;
+    display: flex;
+  }
+
+  .nave {
+    padding: auto;
+    margin: 0;
+    margin-left: 20px;
+    width: auto;
+    display: flex; /* Adicione essa propriedade para ativar o flexbox */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    flex-wrap: wrap; /* Faz com que eles mudem de linha quando não couberem na largura disponível */
+  }
+
+  .nave2 {
+    padding: auto;
+    margin: 0;
+    margin-left: 20px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 73vw;
+    height: 74vw;
+    margin-bottom: 44px;
+    margin-top: 34px;
+    margin-left: 60px;
+  }
+  
+  #color-palette {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    width: auto;
+    margin-top: 30px;
+  }
+
+  #board-size {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+  }
+
+  #generate-board {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  #clear-board {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #button-random-color {
+    width: 100%;
+  }
+}
