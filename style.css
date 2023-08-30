@@ -139,7 +139,7 @@ body {
 #generate-board {
   margin: 0px;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 10px;
   border-bottom: 4px solid rgba(0, 0, 0, 0.42);
   border-radius: 10px;
   border-right: 4px solid rgba(0, 0, 0, 0.333);
@@ -154,8 +154,8 @@ body {
 
 #board-size {
   padding: 20px;
-  margin: 0px;
-  width: 100%;
+  margin-top: 10px;
+  width: 240%;
   height: 40%;
   border-bottom: 4px solid rgb(255, 255, 255);
   border-radius: 10px;
