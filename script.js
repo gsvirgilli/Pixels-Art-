@@ -1,28 +1,22 @@
+// Função para gerar uma cor aleatória
 const randomColor = () => {
-  let primeiraCor = Math.floor(Math.random() * 255);
-  let segundaCor = Math.floor(Math.random() * 255);
-  let terceiraCor = Math.floor(Math.random() * 255);
+  let primeiraCor = Math.floor(Math.random() * 256);
+  let segundaCor = Math.floor(Math.random() * 256);
+  let terceiraCor = Math.floor(Math.random() * 256);
   const rgbColor = `rgb(${primeiraCor},${segundaCor},${terceiraCor})`;
   return rgbColor;
 };
 
+// Função para criar as cores na paleta
 const criandoCores = () => {
-  for (let index = 0; index < 55; index += 1) {
+  const paleta = document.querySelector('#color-palette');
+  for (let index = 0; index < 23; index += 1) {
     const novaCor = document.createElement('div');
     novaCor.classList.add('color');
-    document.querySelector('#color-palette2').appendChild(novaCor);
-    document.querySelector('#color-palette').appendChild(novaCor);
+    paleta.appendChild(novaCor);
   }
 };
 
-const criandoCores2 = () => {
-  for (let index = 0; index < 55; index += 1) {
-    const novaCor = document.createElement('div');
-    novaCor.classList.add('color');
-    document.querySelector('#color-palette2').appendChild(novaCor);
-  }
-}
-criandoCores2();
 criandoCores();
 
 const array = [];
@@ -62,7 +56,7 @@ const btn = document.querySelector('#button-random-color');
 
 btn.addEventListener('click', () => {
   paleta();
-  localStorage.setItem('colorPalette', JSON.stringify(array));
+  localStorage.setItem('colorPalette', JSON.stringify(Array.from(cores).map(cor => cor.style.backgroundColor)));
 });
 
 const pai = document.querySelector('#pixel-board');
@@ -82,20 +76,30 @@ for (let paleta of cores) {
 const criandoQuadro = (tamanho) => {
   pai.innerHTML = '';
   const larguraTotal = window.innerWidth / (window.innerWidth / document.documentElement.clientWidth);
-  const larguraDaDivPai = larguraTotal * 0.4;
-  const larguraPixel = larguraDaDivPai / tamanho;
-  for (let index = 0; index < tamanho; index += 1) {
-    let outro = document.createElement('div');
-    for (let index1 = 0; index1 < tamanho; index1 += 1) {
-      outro = document.createElement('div');
-      outro.className = 'pixel';
-      outro.style.width = larguraPixel + 'px';
-      outro.style.height = larguraPixel + 'px';
-      pai.appendChild(outro);
-    }
+  let larguraDaDivPai;
+
+  if (window.innerWidth <= 768) {
+    larguraDaDivPai = larguraTotal * 0.7;
+  } else {
+    larguraDaDivPai = larguraTotal * 0.4;
   }
-  console.log(pai.children.length);
-  console.log(larguraPixel);
+  const larguraPixel = larguraDaDivPai / tamanho;
+   pai.style.setProperty('--tamanho', tamanho);
+
+  for (let index = 0; index < tamanho; index += 1) {
+    let linha = document.createElement('div'); // Adicione uma nova div para cada linha
+    linha.className = 'linha'; // Defina uma classe para a linha
+
+    for (let index1 = 0; index1 < tamanho; index1 += 1) {
+      let pixel = document.createElement('div');
+      pixel.className = 'pixel';
+      pixel.style.width = larguraPixel + 'px';
+      pixel.style.height = larguraPixel + 'px';
+      linha.appendChild(pixel); // Adicione o pixel à linha
+    }
+
+    pai.appendChild(linha); // Adicione a linha ao quadro
+  }
 };
 
 if (localStorage.getItem('boardSize')) {
@@ -105,22 +109,7 @@ if (localStorage.getItem('boardSize')) {
 if (!localStorage.getItem('boardSize')) {
   criandoQuadro(input);
 }
-/* const addPixelClickEvent = () => {
-  const pixel = document.querySelectorAll('.pixel');
-  for (let quadro of pixel) {
-    quadro.addEventListener('click', (event) => {
-      const selected = document.querySelector('.selected');
-      if (selected) {
-        event.target.style.backgroundColor = selected.style.backgroundColor;
-        const pixel1 = [];
-        for (let index = 0; index < pixel.length; index += 1) {
-          pixel1[index] = pixel[index].style.backgroundColor;
-        }
-        localStorage.setItem('pixelBoard', JSON.stringify(pixel1));
-      }
-    });
-  }
-}; */
+
 
 const getSelectedColor = () => {
   const selected = document.querySelector('.selected');
@@ -139,17 +128,6 @@ const savePixelData = () => {
   localStorage.setItem('pixelBoard', JSON.stringify(pixelData));
 }
 
-/* const addPixelClickEvent = () => {
-  const pixels = document.querySelectorAll('.pixel');
-  pixels.forEach(pixel => {
-    pixel.addEventListener('click', () => {
-      const selectedColor = getSelectedColor();
-      pixel.style.backgroundColor = selectedColor;
-      savePixelData();
-    })
-  })
-}; */
-
 const addPixelClickEvent = () => {
   const pixels = document.querySelectorAll('.pixel');
   let isDragging = false;
@@ -160,9 +138,13 @@ const addPixelClickEvent = () => {
       const selectedColor = getSelectedColor();
       pixel.style.backgroundColor = selectedColor;
       savePixelData();
-    })
+    });
 
     pixel.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    pixel.addEventListener('mouseleave', () => {
       isDragging = false;
     });
 
@@ -173,10 +155,32 @@ const addPixelClickEvent = () => {
         pixel.classList.add('painted');
         savePixelData();
       }
-    })
-  })
-}
+    });
 
+    pixel.addEventListener('touchstart', (event) => {
+      event.preventDefault();
+      isDragging = true;
+      const selectedColor = getSelectedColor();
+      event.target.style.backgroundColor = selectedColor;
+      event.target.classList.add('painted');
+      savePixelData();
+    });
+
+    pixel.addEventListener('touchmove', (event) => {
+      event.preventDefault();
+      if (isDragging) {
+        const selectedColor = getSelectedColor();
+        event.target.style.backgroundColor = selectedColor;
+        event.target.classList.add('painted');
+        savePixelData();
+      }
+    });
+
+    pixel.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  });
+}
 addPixelClickEvent();
 
 btnGerarQuadro.addEventListener('click', () => {
@@ -213,9 +217,3 @@ for (let clear of btn2) {
     }
   });
 }
-
-/* const desenhosAleatorios = () => {
-  const array = [];
-  let randondesenho = Math.floor(Math.random() * array.length);
-  return array[randondesenho];
-} */
