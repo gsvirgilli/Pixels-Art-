@@ -226,8 +226,10 @@ btnGerarQuadro.addEventListener('click', () => {
   } else if (input > 50) {
     criandoQuadro(200);
     addPixelClickEvent();
-  } else {
-    alert('Board inválido!');
+  } else if (input > 200) {
+    alert('Tamanho Muito Grande!');
+  }else {
+    alert('Digite o Tamanho!');
   }
   localStorage.setItem('boardSize', input);
 });
