@@ -24,8 +24,8 @@ const cores = document.querySelectorAll('.color');
 const numCores = cores.length;
 
 const paleta = () => {
-  array[0] = cores[0].style.backgroundColor = 'black';
-  array[1] = cores[1].style.backgroundColor = 'white';
+  array[1] = cores[1].style.backgroundColor = 'black';
+  array[0] = cores[0].style.backgroundColor = 'white';
   for (let index = 2; index < numCores; index += 1) {
     let novaCor = randomColor();
     while (array.includes(novaCor)) {
