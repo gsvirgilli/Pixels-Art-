@@ -48,6 +48,7 @@
     padding: auto;
     margin: 0;
     margin-left: 20px;
+    margin-right: 20px;
     width: auto;
     display: flex; /* Adicione essa propriedade para ativar o flexbox */
     flex-direction: column; /* Organiza os elementos em coluna */
@@ -58,6 +59,7 @@
     padding: auto;
     margin: 0;
     margin-left: 20px;
+    margin-right: 20px;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -98,7 +100,6 @@
   #clear-board {
     width: 100%;
     margin-top: 10px;
-    margin-bottom: 10px;
   }
 
   #button-random-color {
