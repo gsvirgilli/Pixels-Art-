@@ -136,6 +136,7 @@ body {
   border-bottom: none;
   border-radius: none;
   border-right: none;
+  border-color: rgba(34, 34, 194, 0.587);
 }
 
 #generate-board {
@@ -153,6 +154,7 @@ body {
   border-bottom: none;
   border-radius: none;
   border-right: none;
+  border-color: rgba(34, 86, 34, 0.395);
 }
 
 #board-size {
@@ -182,13 +184,18 @@ body {
   border-radius: 10px;
   border-right: 4px solid rgba(0, 0, 0, 0.333);
   background-color: rgba(250, 60, 60, 0.743);
-  border-color: rgba(110, 33, 33, 0.76);
+  
 }
 
 #clear-board:active {
   border-bottom: none;
   border-radius: none;
   border-right: none;
+  border-color: rgba(110, 33, 33, 0.76);
+}
+
+#undo-button {
+  display: none;
 }
 
 @media (max-width: 1250px) {

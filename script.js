@@ -128,16 +128,19 @@ const savePixelData = () => {
   localStorage.setItem('pixelBoard', JSON.stringify(pixelData));
 }
 
+const paintedPixelIndices = []; 
+
 const addPixelClickEvent = () => {
   const pixels = document.querySelectorAll('.pixel');
   let isDragging = false;
 
-  pixels.forEach(pixel => {
+  pixels.forEach((pixel, index) => {
     pixel.addEventListener('mousedown', () => {
       isDragging = true;
       const selectedColor = getSelectedColor();
       pixel.style.backgroundColor = selectedColor;
       pixel.classList.add('painted');
+      paintedPixelIndices.push(index); 
       savePixelData();
     });
 
@@ -160,6 +163,7 @@ const addPixelClickEvent = () => {
       const selectedColor = getSelectedColor();
       event.target.style.backgroundColor = selectedColor;
       event.target.classList.add('painted');
+      paintedPixelIndices.push(index);
       savePixelData();
     });
 
@@ -182,6 +186,27 @@ const addPixelClickEvent = () => {
     isDragging = false;
   });
 };
+
+///             asdaaaaaaaaaaaaa
+const undoLastPaintedPixel = () => {
+  const pixels = document.querySelectorAll('.pixel');
+
+  if (paintedPixelIndices.length > 0) {
+    const lastPaintedIndex = paintedPixelIndices.pop(); // Remove o último índice pintado
+
+    if (pixels[lastPaintedIndex]) {
+      pixels[lastPaintedIndex].style.backgroundColor = 'white';
+      pixels[lastPaintedIndex].classList.remove('painted');
+      savePixelData(); // Salva os dados atualizados após desfazer
+    }
+  }
+};
+
+const undoButton = document.querySelector('#undo-button');
+
+undoButton.addEventListener('click', () => {
+  undoLastPaintedPixel();
+});
 
 // Chame a função para adicionar os eventos de clique e arraste aos pixels
 addPixelClickEvent();
