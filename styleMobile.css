@@ -51,7 +51,7 @@
     margin-right: 20px;
     width: auto;
     display: flex; /* Adicione essa propriedade para ativar o flexbox */
-    flex-direction: column; /* Organiza os elementos em coluna */
+    flex-direction: row; /* Organiza os elementos em coluna */
     flex-wrap: wrap; /* Faz com que eles mudem de linha quando não couberem na largura disponível */
   }
 
@@ -98,12 +98,32 @@
   }
 
   #clear-board {
-    width: 100%;
+    width: 70%;
     margin-top: 10px;
+    margin-left: 40px;
   }
 
   #button-random-color {
     width: 100%;
     margin-bottom: 60px;
+  }
+
+   #undo-button {
+    display: block;
+    margin-top: 3%;
+    width: 17%;
+    height: 10%;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.42);
+    border-radius: 10px;
+    border-right: 4px solid rgba(0, 0, 0, 0.333);
+    background-color: rgba(250, 60, 60, 0.743);
+    border-color: rgba(110, 33, 33, 0.76);
+  }
+
+  #undo-button:active {
+    border-bottom: none;
+    border-radius: none;
+    border-right: none;
+    border-color: rgba(110, 33, 33, 0.76);
   }
 }
