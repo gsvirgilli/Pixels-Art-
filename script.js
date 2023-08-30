@@ -137,6 +137,7 @@ const addPixelClickEvent = () => {
       isDragging = true;
       const selectedColor = getSelectedColor();
       pixel.style.backgroundColor = selectedColor;
+      pixel.classList.add('painted');
       savePixelData();
     });
 
@@ -144,15 +145,11 @@ const addPixelClickEvent = () => {
       isDragging = false;
     });
 
-    pixel.addEventListener('mouseleave', () => {
-      isDragging = false;
-    });
-
-    pixel.addEventListener('mouseover', (event) => {
-      if (isDragging && event.buttons === 1) {
+    pixel.addEventListener('mousemove', (event) => {
+      if (isDragging) {
         const selectedColor = getSelectedColor();
-        pixel.style.backgroundColor = selectedColor;
-        pixel.classList.add('painted');
+        event.target.style.backgroundColor = selectedColor;
+        event.target.classList.add('painted');
         savePixelData();
       }
     });
@@ -180,10 +177,20 @@ const addPixelClickEvent = () => {
       isDragging = false;
     });
   });
-}
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+};
+
+// Chame a função para adicionar os eventos de clique e arraste aos pixels
 addPixelClickEvent();
 
 btnGerarQuadro.addEventListener('click', () => {
+  const pixels = document.querySelectorAll('.pixel');
+    for (let index = 0; index < pixels.length; index += 1) {
+      pixels[index].style.backgroundColor = 'white';
+    }
   input = document.querySelector('#board-size').value;
   if (input >= 5 && input <= 50) {
     criandoQuadro(input);
