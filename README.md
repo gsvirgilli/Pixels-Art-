@@ -1,26 +1,23 @@
-# Pixel Art Website
+# Pixel Art - Crie suas próprias obras-primas pixelizadas!
 
-Este repositório contém um website de Pixel Art que pode ser acessado através do link [https://gsvirgilli.github.io/Pixels-Art-/](https://gsvirgilli.github.io/Pixels-Art-/).
+Bem-vindo ao projeto Pixel Art! Este é um aplicativo desenvolvido como parte do módulo de Fundamentos na Trybe, onde os usuários podem criar suas próprias artes pixelizadas.
 
-## Descrição
+![Exemplo do Pixel Art](https://link-para-imagem-do-seu-projeto.com)
 
-O website de Pixel Art é uma aplicação web que permite aos usuários criarem desenhos utilizando pixels e compartilhá-los com outros usuários. O site conta com uma variedade de ferramentas para a criação de desenhos, incluindo pincéis, borracha, balde de tinta, e uma paleta de cores. Além disso, os usuários podem salvar seus desenhos e compartilhá-los na galeria pública do site.
+## Como Funciona
 
-## Instalação
-
-Para executar este projeto localmente, siga os passos abaixo:
-
-1. Clone o repositório em seu computador:
-````
-git clone git@github.com:gsvirgilli/Pixels-Art-.git
-````
-
-2. Abra o arquivo `index.html` em seu navegador de preferência.
+- [Link para o Projeto](https://link-para-o-seu-projeto.com): Você pode acessar o projeto online e começar a criar suas próprias pixel arts.
 
 ## Contribuição
 
-Se você deseja contribuir para este projeto, sinta-se livre para abrir uma *issue* ou enviar um *pull request*. Toda ajuda é bem-vinda!
+Você gostaria de contribuir para este projeto? Ótimo! Ficaríamos felizes em receber sua ajuda. Confira nosso [guia de contribuição](CONTRIBUTING.md) para saber como começar.
+
+## Problemas e Sugestões
+
+Se você encontrar problemas ou tiver sugestões para melhorar este projeto, por favor, abra uma [issue](https://link-para-as-issues-do-seu-repositório.com) aqui no GitHub.
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença [Nome da Licença](LICENSE). Sinta-se à vontade para usar, modificar e distribuir conforme necessário.
+
+Agradecemos por explorar nosso projeto Pixel Art! Esperamos ver suas incríveis criações em breve. Divirta-se!
