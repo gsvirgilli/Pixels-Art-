@@ -224,9 +224,6 @@ btnGerarQuadro.addEventListener('click', () => {
     criandoQuadro(10);
     addPixelClickEvent();
   } else if (input > 50) {
-    criandoQuadro(200);
-    addPixelClickEvent();
-  } else if (input > 200) {
     alert('Tamanho Muito Grande!');
   }else {
     alert('Digite o Tamanho!');
